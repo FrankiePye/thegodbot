@@ -10,11 +10,21 @@
 
 module.exports = (robot) ->
 
-  # robot.hear /badger/i, (res) ->
-  #   res.send "Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS"
-  #
-  # robot.respond /open the (.*) doors/i, (res) ->
-  #   doorType = res.match[1]
+  robot.hear /badger/i, (res) ->
+    res.send "Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS"
+
+  robot.respond /open the (.*) doors/i, (res) ->
+    doorType = res.match[1]
+
+  robot.hear /Lucinda/i, (res) ->
+    res.send "smells"
+
+  Quotes = ['well when you throw custard creams at my head i feel like you suck all of the happiness out of my life', 'having carrots as a dietary requirement','ive been having a passionate love affair that keeps me out all hours of the night']
+
+  robot.respond /Quotes/i, (res) ->
+    res.send res.random Quotes
+
+
   #   if doorType is "pod bay"
   #     res.reply "I'm afraid I can't let you do that."
   #   else
@@ -23,10 +33,10 @@ module.exports = (robot) ->
   # robot.hear /I like pie/i, (res) ->
   #   res.emote "makes a freshly baked pie"
   #
-  # lulz = ['lol', 'rofl', 'lmao']
-  #
-  # robot.respond /lulz/i, (res) ->
-  #   res.send res.random lulz
+  lulz = ['lol', 'rofl', 'lmao']
+
+  robot.respond /lulz/i, (res) ->
+    res.send res.random lulz
   #
   # robot.topic (res) ->
   #   res.send "#{res.message.text}? That's a Paddlin'"
